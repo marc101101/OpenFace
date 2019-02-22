@@ -33,6 +33,7 @@ try:
 	            print("Message received: "  +  str(buff[:-1].split(",")))
 	            frame_to_push = buff[:-1].split(",")
 	            counter = 0
+	            frame_to_push.remove(0)
 	            for i in frame_to_push:
 	            	try:
 	            		frame_to_push[counter] = float(i)
@@ -42,7 +43,6 @@ try:
 	            		raise e
 	            	
 	            	counter = counter+1
-	            frame_to_push.remove(0)
 	            outlet.push_sample(frame_to_push)
 	            buff = ''
 	            k = k + 1
