@@ -33,7 +33,7 @@ try:
 	            print("Message received: "  +  str(buff[:-1].split(",")))
 	            frame_to_push = buff[:-1].split(",")
 	            counter = 0
-	            frame_to_push[0].remove()
+	            frame_to_push.pop(0)
 	            for i in frame_to_push:
 	            	try:
 	            		frame_to_push[counter] = float(i)
