@@ -47,9 +47,9 @@ try:
 	            buff = ''
 	            k = k + 1
         else:
-		    if buff.endswith('\n'):
-		        print(buff[:-1])
-			    buff = '' 
+            if buff.endswith('\n'):
+                print(buff[:-1])
+                buff = '' 
 
 except KeyboardInterrupt:
    sys.stdout.flush()
