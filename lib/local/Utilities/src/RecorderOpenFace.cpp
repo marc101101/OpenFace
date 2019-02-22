@@ -373,7 +373,7 @@ void RecorderOpenFace::WriteObservation()
 		<< head_pose[2] << ", "
 		<< head_pose[3] << ", "
 		<< head_pose[4] << ", "
-		<< head_pose[5];
+		<< head_pose[5] << std::endl;
 
 	if(params.outputHOG())
 	{
