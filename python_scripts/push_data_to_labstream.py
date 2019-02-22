@@ -2,7 +2,7 @@ import sys
 import time
 from pylsl import StreamInfo, StreamOutlet
 
-info = StreamInfo(client_name, 'FD', 17, 100, 'float32', 'gum11127_Openface')
+info = StreamInfo("client_name", 'FD', 17, 100, 'float32', 'gum11127_Openface')
 outlet = StreamOutlet(info)
 k = 0
 
@@ -28,23 +28,25 @@ try:
     buff = ''
     while True:
         buff += sys.stdin.read(1)
-        if buff.endswith('\n'):
-            print("Message received: "  +  str(buff[:-1].split(",")))
-            frame_to_push = buff[:-1].split(",")
-            counter = 0
-            for i in frame_to_push:
-            	try:
-            		frame_to_push[counter] = float(i)
-            		pass
-            	except Exception as e:
-            		frame_to_push[counter] = 0
-            		raise e
-            	
-            	counter = counter+1
-            print(frame_to_push)
-            outlet.push_sample(frame_to_push)
-            buff = ''
-            k = k + 1
+        if buff.startswith("relevant_entry"):
+	        if buff.endswith('\n'):
+	            print("Message received: "  +  str(buff[:-1].split(",")))
+	            frame_to_push = buff[:-1].split(",")
+	            counter = 0
+	            for i in frame_to_push:
+	            	try:
+	            		frame_to_push[counter] = float(i)
+	            		pass
+	            	except Exception as e:
+	            		frame_to_push[counter] = 0
+	            		raise e
+	            	
+	            	counter = counter+1
+	            frame_to_push.remove(0)
+	            print(frame_to_push)
+	            outlet.push_sample(frame_to_push)
+	            buff = ''
+	            k = k + 1
 except KeyboardInterrupt:
    sys.stdout.flush()
    pass
