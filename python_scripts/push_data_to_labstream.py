@@ -46,10 +46,10 @@ try:
 	            outlet.push_sample(frame_to_push)
 	            buff = ''
 	            k = k + 1
-		else:
-			if buff.endswith('\n'):
-				print(buff[:-1])
-				buff = '' 
+        else:
+		    if buff.endswith('\n'):
+		        print(buff[:-1])
+			    buff = '' 
 
 except KeyboardInterrupt:
    sys.stdout.flush()
