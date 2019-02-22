@@ -31,7 +31,7 @@ try:
         if buff.startswith("relevant_entry"):
 	        if buff.endswith('\n'):
 	            frame_to_push = buff[:-1].split(",")
-	            frame_to_push.pop(0)
+	            frame_to_push = frame_to_push.pop(0)
 	            print("Message received: "  +  str(buff[:-1].split(",")))
 	            counter = 0
 	            for i in frame_to_push:
