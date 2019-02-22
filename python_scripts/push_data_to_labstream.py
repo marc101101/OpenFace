@@ -43,10 +43,14 @@ try:
 	            	
 	            	counter = counter+1
 	            frame_to_push.remove(0)
-	            print(frame_to_push)
 	            outlet.push_sample(frame_to_push)
 	            buff = ''
 	            k = k + 1
+		else:
+			if buff.endswith('\n'):
+				print(buff[:-1])
+				buff = '' 
+
 except KeyboardInterrupt:
    sys.stdout.flush()
    pass
