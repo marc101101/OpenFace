@@ -6,7 +6,7 @@ import cv2
 info = StreamInfo("client_name", 'FD', 17, 100, 'float32', 'gum11127_Openface')
 outlet = StreamOutlet(info)
 
-info_video = StreamInfo("client_name_video", 'FDV', 1, 100, 'dest_obj', 'gum11127_Openface_video')
+info_video = StreamInfo("client_name_video", 'FDV', 1, 100, 'string', 'gum11127_Openface_video')
 outlet_video = StreamOutlet(info_video)
 k = 0
 
