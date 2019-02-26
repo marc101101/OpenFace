@@ -14,7 +14,7 @@ k = 0
 cap = cv2.VideoCapture(0)
 
 # Define the codec and create VideoWriter object
-fourcc = cv2.VideoWriter_fourcc(*'XVID')
+fourcc = cv2.VideoWriter_fourcc('F','M','P','4')
 out = cv2.VideoWriter('output-' + str(time.time()) + '.avi', fourcc, 20.0, (640, 480))
 
 # std::cout << face_id << ", "
