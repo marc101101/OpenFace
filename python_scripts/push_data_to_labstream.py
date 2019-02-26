@@ -39,9 +39,11 @@ try:
     while True:
         buff += sys.stdin.read(1)
         ret, frame = cap.read()
-        print(ret)
         if ret == True:
-            out.write(frame)
+            try:
+                out.write(frame)
+            except Exception as e:
+                print(e)
             #print(type(frame))
             #outlet_video.push_sample(frame)
 
