@@ -1,13 +1,12 @@
 import sys
 import time
 from pylsl import StreamInfo, StreamOutlet
-import numpy as np
 import cv2
 
 info = StreamInfo("client_name", 'FD', 17, 100, 'float32', 'gum11127_Openface')
 outlet = StreamOutlet(info)
 
-info_video = StreamInfo("client_name_video", 'FDV', 1, 100, 'string', 'gum11127_Openface_video')
+info_video = StreamInfo("client_name_video", 'FDV', 1, 100, 'dest_obj', 'gum11127_Openface_video')
 outlet_video = StreamOutlet(info_video)
 k = 0
 
@@ -40,10 +39,12 @@ try:
     while True:
         buff += sys.stdin.read(1)
         ret, frame = cap.read()
+        print(ret)
         if ret == True:
             out.write(frame)
-            outlet_video.push_sample(frame)
-            
+            #print(type(frame))
+            #outlet_video.push_sample(frame)
+
         if buff.startswith("relevant_entry"):
             if buff.endswith('\n'):
                 frame_to_push = buff[:-1].split(",")
