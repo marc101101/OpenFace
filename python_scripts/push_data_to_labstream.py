@@ -14,7 +14,7 @@ k = 0
 cap = cv2.VideoCapture(0)
 
 # Define the codec and create VideoWriter object
-fourcc = cv2.VideoWriter_fourcc('F','M','P','4')
+fourcc = cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')
 out = cv2.VideoWriter('output-' + str(time.time()) + '.avi', fourcc, 20.0, (640, 480))
 
 # std::cout << face_id << ", "
@@ -39,28 +39,29 @@ try:
     buff = ''
     while True:
         buff += sys.stdin.read(1)
+        ret, frame = cap.read()
+        if ret == True:
+            out.write(frame)
+            outlet_video.push_sample(frame)
+            
         if buff.startswith("relevant_entry"):
-            ret, frame = cap.read()
-            if ret == True:
-                out.write(frame)
-                outlet_video.push_sample(frame)
-                if buff.endswith('\n'):
-                    frame_to_push = buff[:-1].split(",")
-                    frame_to_push.pop(0)
-                    print("Message received: " + str(frame_to_push))
-                    counter = 0
-                    for i in frame_to_push:
-                        try:
-                            frame_to_push[counter] = float(i)
-                            pass
-                        except Exception as e:
-                            frame_to_push[counter] = 0
-                            raise e
+            if buff.endswith('\n'):
+                frame_to_push = buff[:-1].split(",")
+                frame_to_push.pop(0)
+                print("Message received: " + str(frame_to_push))
+                counter = 0
+                for i in frame_to_push:
+                    try:
+                        frame_to_push[counter] = float(i)
+                        pass
+                    except Exception as e:
+                        frame_to_push[counter] = 0
+                        raise e
 
-                        counter = counter + 1
-                    outlet.push_sample(frame_to_push)
-                    buff = ''
-                    k = k + 1
+                    counter = counter + 1
+                outlet.push_sample(frame_to_push)
+                buff = ''
+                k = k + 1
     else:
         if buff.endswith('\n'):
             print(buff[:-1])
