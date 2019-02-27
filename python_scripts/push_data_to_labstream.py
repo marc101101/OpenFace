@@ -27,7 +27,10 @@ try:
                     counter = counter+1
                 if(len(frame_to_push) == 17):
                     print("Message received: " + str(frame_to_push))
-                    outlet.push_sample(frame_to_push)
+                    try:
+                        outlet.push_sample(frame_to_push)
+                    except Exception as e:
+                        print(e)
                 buff = ''
                 k = k + 1
         else:
