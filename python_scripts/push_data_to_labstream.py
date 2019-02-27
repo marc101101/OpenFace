@@ -15,7 +15,6 @@ try:
             if buff.endswith('\n'):
                 frame_to_push = buff[:-1].split(",")
                 frame_to_push.pop(0)
-                print("Message received: "  +  str(frame_to_push))
                 counter = 0
                 for i in frame_to_push:
                     try:
@@ -27,6 +26,7 @@ try:
 
                     counter = counter+1
                 if(len(frame_to_push) == 17):
+                    print("Message received: " + str(frame_to_push))
                     outlet.push_sample(frame_to_push)
                 buff = ''
                 k = k + 1
