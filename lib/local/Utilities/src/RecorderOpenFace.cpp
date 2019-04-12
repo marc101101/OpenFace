@@ -369,12 +369,20 @@ void RecorderOpenFace::WriteObservation()
 		<< gaze_direction1.x << ", "
 		<< gaze_direction1.y << ", "
 		<< gaze_direction1.z << ", "
+		<< gaze_angle[0] << ", "
+		<< gaze_angle[1] << ", "
 		<< head_pose[0] << ", "
 		<< head_pose[1] << ", "
 		<< head_pose[2] << ", "
 		<< head_pose[3] << ", "
 		<< head_pose[4] << ", "
-		<< head_pose[5] << std::endl;
+		<< head_pose[5] << ", "
+		<< eye_landmarks3D[0] << ", "
+		<< eye_landmarks3D[55] << ", "
+		<< eye_landmarks3D[110] << ", "
+		<< eye_landmarks3D[1] << ", "
+		<< eye_landmarks3D[56] << ", "
+		<< eye_landmarks3D[111] <<  std::endl;
 
 	if(params.outputHOG())
 	{
