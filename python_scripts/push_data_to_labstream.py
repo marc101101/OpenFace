@@ -6,7 +6,6 @@ info = StreamInfo("client_name", 'FD', 17, 100, 'float32', 'gum11127_Openface')
 outlet = StreamOutlet(info)
 k = 0
 
-
 try:
     buff = ''
     while True:
