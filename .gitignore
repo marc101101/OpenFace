@@ -100,3 +100,5 @@ lib/local/Utilities/Debug/
 lib/3rdParty/CameraEnumerator/Debug/
 lib/local/CppInerop/Debug/
 *.user
+
+\.DS_Store
