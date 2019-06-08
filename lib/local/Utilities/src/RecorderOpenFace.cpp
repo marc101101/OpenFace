@@ -357,32 +357,69 @@ void RecorderOpenFace::WriteObservation()
 		landmark_detection_confidence, landmarks_2D, landmarks_3D, pdm_params_local, pdm_params_global, head_pose,
 		gaze_direction0, gaze_direction1, gaze_angle, eye_landmarks2D, eye_landmarks3D, au_intensities, au_occurences);
 
-	std::cout << "relevant_entry" << ","
-		<< face_id << ", "
-		<< frame_number << ", " 
-		<< timestamp << ", " 
-		<< landmark_detection_success << ", " 
-		<< landmark_detection_confidence << ", " 
-		<< gaze_direction0.x << ", " 
-		<< gaze_direction0.y << ", " 
-		<< gaze_direction0.z << ", " 
-		<< gaze_direction1.x << ", "
-		<< gaze_direction1.y << ", "
-		<< gaze_direction1.z << ", "
-		<< gaze_angle[0] << ", "
-		<< gaze_angle[1] << ", "
-		<< head_pose[0] << ", "
-		<< head_pose[1] << ", "
-		<< head_pose[2] << ", "
-		<< head_pose[3] << ", "
-		<< head_pose[4] << ", "
-		<< head_pose[5] << ", "
-		<< eye_landmarks3D[0].x << ", "
-		<< eye_landmarks3D[0].y << ", "
-		<< eye_landmarks3D[0].z << ", "
-		<< eye_landmarks3D[28].x << ", "
-		<< eye_landmarks3D[28].y << ", "
-		<< eye_landmarks3D[28].z <<  std::endl;
+	std::cout << "relevant_entry:" << "{"
+		<< "face_id: " << face_id << ", "
+		<< "frame_number: " << frame_number << ", " 
+		<< "timestamp: " << timestamp << ", " 
+		<< "landmark_detection_success: " << landmark_detection_success << ", " 
+		<< "landmark_detection_confidence: " << landmark_detection_confidence << ", " 
+		<< "gaze_direction0_x: " << gaze_direction0.x << ", " 
+		<< "gaze_direction0_y: " << gaze_direction0.y << ", " 
+		<< "gaze_direction0_z: " << gaze_direction0.z << ", " 
+		<< "gaze_direction1_x: " << gaze_direction1.x << ", "
+		<< "gaze_direction1_y: " << gaze_direction1.y << ", "
+		<< "gaze_direction1_z: " << gaze_direction1.z << ", "
+		<< "gaze_angle_x: " << gaze_angle[0] << ", "
+		<< "gaze_angle_y: " << gaze_angle[1] << ", "
+		<< "head_pose: " << head_pose[0] << ", "
+		<< "head_pose: " << head_pose[1] << ", "
+		<< "head_pose: " << head_pose[2] << ", "
+		<< "head_pose: " << head_pose[3] << ", "
+		<< "head_pose: " << head_pose[4] << ", "
+		<< "head_pose: " << head_pose[5] << ", "
+		<< "eye_landmarks3D_0_x: " << eye_landmarks3D[0].x << ", "
+		<< "eye_landmarks3D_1_y: " << eye_landmarks3D[0].y << ", "
+		<< "eye_landmarks3D_1_z: " << eye_landmarks3D[0].z << ", "
+		<< "eye_landmarks3D_0_x: " << eye_landmarks3D[28].x << ", "
+		<< "eye_landmarks3D_1_y: " << eye_landmarks3D[28].y << ", "
+		<< "eye_landmarks3D_2_z: " << eye_landmarks3D[28].z  << "}" <<  std::endl;
+
+		/* 
+		output_file << std::setprecision(6);
+		output_file << ", " << gazeDirection0.x << ", " << gazeDirection0.y << ", " << gazeDirection0.z
+			<< ", " << gazeDirection1.x << ", " << gazeDirection1.y << ", " << gazeDirection1.z;
+
+		// Output gaze angle (same format as head pose angle)
+		output_file << std::setprecision(3);
+		output_file << ", " << gaze_angle[0] << ", " << gaze_angle[1];
+
+		// Output the 2D eye landmarks
+		output_file << std::setprecision(1);
+		for (auto eye_lmk : eye_landmarks2d)
+		{
+			output_file << ", " << eye_lmk.x;
+		}
+
+		for (auto eye_lmk : eye_landmarks2d)
+		{
+			output_file << ", " << eye_lmk.y;
+		}
+
+		// Output the 3D eye landmarks
+		for (auto eye_lmk : eye_landmarks3d)
+		{
+			output_file << ", " << eye_lmk.x;
+		}
+
+		for (auto eye_lmk : eye_landmarks3d)
+		{
+			output_file << ", " << eye_lmk.y;
+		}
+
+		for (auto eye_lmk : eye_landmarks3d)
+		{
+			output_file << ", " << eye_lmk.z;
+		}*/
 
 	if(params.outputHOG())
 	{
