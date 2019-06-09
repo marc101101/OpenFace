@@ -370,12 +370,12 @@ void RecorderOpenFace::WriteObservation()
 		<< "'gaze_direction_1_z': " << gaze_direction1.z << ", "
 		<< "'gaze_angle_x': " << gaze_angle[0] << ", "
 		<< "'gaze_angle_y': " << gaze_angle[1] << ", "
-		<< "'head_pose': " << head_pose[0] << ", "
-		<< "'head_pose': " << head_pose[1] << ", "
-		<< "'head_pose': " << head_pose[2] << ", "
-		<< "'head_pose': " << head_pose[3] << ", "
-		<< "'head_pose': " << head_pose[4] << ", "
-		<< "'head_pose': " << head_pose[5] << ", ";
+		<< "'pose_Tx': " << head_pose[0] << ", "
+		<< "'pose_Ty': " << head_pose[1] << ", "
+		<< "'pose_Tz': " << head_pose[2] << ", "
+		<< "'pose_Rx': " << head_pose[3] << ", "
+		<< "'pose_Ry': " << head_pose[4] << ", "
+		<< "'pose_Rz': " << head_pose[5] << ", ";
 
 		for (int i = 0; i < eye_landmarks2D.size(); ++i)
 		{
