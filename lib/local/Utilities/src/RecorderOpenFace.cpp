@@ -362,12 +362,12 @@ void RecorderOpenFace::WriteObservation()
 		<< "'frame_number': " << frame_number << ", " 
 		<< "'landmark_detection_success': " << landmark_detection_success << ", " 
 		<< "'landmark_detection_confidence': " << landmark_detection_confidence << ", " 
-		<< "'gaze_direction0_x': " << gaze_direction0.x << ", " 
-		<< "'gaze_direction0_y': " << gaze_direction0.y << ", " 
-		<< "'gaze_direction0_z': " << gaze_direction0.z << ", " 
-		<< "'gaze_direction1_x': " << gaze_direction1.x << ", "
-		<< "'gaze_direction1_y': " << gaze_direction1.y << ", "
-		<< "'gaze_direction1_z': " << gaze_direction1.z << ", "
+		<< "'gaze_direction_0_x': " << gaze_direction0.x << ", " 
+		<< "'gaze_direction_0_y': " << gaze_direction0.y << ", " 
+		<< "'gaze_direction_0_z': " << gaze_direction0.z << ", " 
+		<< "'gaze_direction_1_x': " << gaze_direction1.x << ", "
+		<< "'gaze_direction_1_y': " << gaze_direction1.y << ", "
+		<< "'gaze_direction_1_z': " << gaze_direction1.z << ", "
 		<< "'gaze_angle_x': " << gaze_angle[0] << ", "
 		<< "'gaze_angle_y': " << gaze_angle[1] << ", "
 		<< "'head_pose': " << head_pose[0] << ", "
@@ -377,14 +377,6 @@ void RecorderOpenFace::WriteObservation()
 		<< "'head_pose': " << head_pose[4] << ", "
 		<< "'head_pose': " << head_pose[5] << ", ";
 
-		//<< "'eye_landmarks3D_0_x': " << eye_landmarks3D[0].x << ", "
-		//<< "'eye_landmarks3D_1_y': " << eye_landmarks3D[0].y << ", "
-		//<< "'eye_landmarks3D_1_z': " << eye_landmarks3D[0].z << ", "
-		//<< "'eye_landmarks3D_0_x': " << eye_landmarks3D[28].x << ", "
-		//<< "'eye_landmarks3D_1_y': " << eye_landmarks3D[28].y << ", "
-		//<< "'eye_landmarks3D_2_z': " << eye_landmarks3D[28].z  << "}" 
-
-		
 		for (int i = 0; i < eye_landmarks2D.size(); ++i)
 		{
 			std::cout << "'eye_lmk_x_" << i << "':" << eye_landmarks2D[i].x << ", ";
@@ -406,10 +398,14 @@ void RecorderOpenFace::WriteObservation()
 
 		for (int i = 0; i < eye_landmarks3D.size(); ++i)
 		{
-			std::cout << "'eye_lmk_Z_" << i << "':" << eye_landmarks3D[i].z << ", ";
+			if(i == eye_landmarks3D.size()-1){
+				std::cout << "'eye_lmk_Z_" << i << "':" << eye_landmarks3D[i].z;
+			}
+			else{
+				std::cout << "'eye_lmk_Z_" << i << "':" << eye_landmarks3D[i].z << ", ";
+			}
 		}	
-		
-		
+				
 		std::cout << "}" <<  std::endl;
 
 		/* 
