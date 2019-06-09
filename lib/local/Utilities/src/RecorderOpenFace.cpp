@@ -375,7 +375,7 @@ void RecorderOpenFace::WriteObservation()
 		<< "'head_pose': " << head_pose[2] << ", "
 		<< "'head_pose': " << head_pose[3] << ", "
 		<< "'head_pose': " << head_pose[4] << ", "
-		<< "'head_pose': " << head_pose[5] << ", " 
+		<< "'head_pose': " << head_pose[5] << ", ";
 
 		//<< "'eye_landmarks3D_0_x': " << eye_landmarks3D[0].x << ", "
 		//<< "'eye_landmarks3D_1_y': " << eye_landmarks3D[0].y << ", "
