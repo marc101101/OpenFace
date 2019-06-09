@@ -360,7 +360,6 @@ void RecorderOpenFace::WriteObservation()
 	std::cout << "relevant_entry:" << "{"
 		<< "'face_id': " << face_id << ", "
 		<< "'frame_number': " << frame_number << ", " 
-		<< "'timestamp': " << timestamp << ", " 
 		<< "'landmark_detection_success': " << landmark_detection_success << ", " 
 		<< "'landmark_detection_confidence': " << landmark_detection_confidence << ", " 
 		<< "'gaze_direction0_x': " << gaze_direction0.x << ", " 
@@ -377,12 +376,40 @@ void RecorderOpenFace::WriteObservation()
 		<< "'head_pose': " << head_pose[3] << ", "
 		<< "'head_pose': " << head_pose[4] << ", "
 		<< "'head_pose': " << head_pose[5] << ", "
-		<< "'eye_landmarks3D_0_x': " << eye_landmarks3D[0].x << ", "
-		<< "'eye_landmarks3D_1_y': " << eye_landmarks3D[0].y << ", "
-		<< "'eye_landmarks3D_1_z': " << eye_landmarks3D[0].z << ", "
-		<< "'eye_landmarks3D_0_x': " << eye_landmarks3D[28].x << ", "
-		<< "'eye_landmarks3D_1_y': " << eye_landmarks3D[28].y << ", "
-		<< "'eye_landmarks3D_2_z': " << eye_landmarks3D[28].z  << "}" <<  std::endl;
+
+		//<< "'eye_landmarks3D_0_x': " << eye_landmarks3D[0].x << ", "
+		//<< "'eye_landmarks3D_1_y': " << eye_landmarks3D[0].y << ", "
+		//<< "'eye_landmarks3D_1_z': " << eye_landmarks3D[0].z << ", "
+		//<< "'eye_landmarks3D_0_x': " << eye_landmarks3D[28].x << ", "
+		//<< "'eye_landmarks3D_1_y': " << eye_landmarks3D[28].y << ", "
+		//<< "'eye_landmarks3D_2_z': " << eye_landmarks3D[28].z  << "}" 
+
+
+		for (int i = 0; i < eye_landmarks2D; ++i)
+		{
+			<< "'eye_lmk_x_" << i << ":'" << eye_landmarks2D[i].x;
+		}
+		for (int i = 0; i < eye_landmarks2D; ++i)
+		{
+			<< "'eye_lmk_y_" << i << ":'" << eye_landmarks2D[i].y;
+		}
+
+
+		for (int i = 0; i < eye_landmarks3D; ++i)
+		{
+			<< "'eye_lmk_X_" << i << ":'" << eye_landmarks3D[i].x;
+		}
+		for (int i = 0; i < eye_landmarks3D; ++i)
+		{
+			<< "'eye_lmk_Y_" << i << ":'" << eye_landmarks3D[i].y;
+		}
+
+		for (int i = 0; i < eye_landmarks3D; ++i)
+		{
+			<< "'eye_lmk_Z_" << i << ":'" << eye_landmarks3D[i].z;
+		}	
+		
+		<<  std::endl;
 
 		/* 
 		output_file << std::setprecision(6);
