@@ -393,21 +393,6 @@ void RecorderOpenFace::WriteObservation()
 		{
 			<< "'eye_lmk_y_" << i << ":'" << eye_landmarks2D[i].y;
 		}
-
-
-		for (int i = 0; i < eye_landmarks3D; ++i)
-		{
-			<< "'eye_lmk_X_" << i << ":'" << eye_landmarks3D[i].x;
-		}
-		for (int i = 0; i < eye_landmarks3D; ++i)
-		{
-			<< "'eye_lmk_Y_" << i << ":'" << eye_landmarks3D[i].y;
-		}
-
-		for (int i = 0; i < eye_landmarks3D; ++i)
-		{
-			<< "'eye_lmk_Z_" << i << ":'" << eye_landmarks3D[i].z;
-		}	
 		
 		<<  std::endl;
 
