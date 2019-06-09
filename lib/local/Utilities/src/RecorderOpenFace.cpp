@@ -408,43 +408,6 @@ void RecorderOpenFace::WriteObservation()
 				
 		std::cout << "}" <<  std::endl;
 
-		/* 
-		output_file << std::setprecision(6);
-		output_file << ", " << gazeDirection0.x << ", " << gazeDirection0.y << ", " << gazeDirection0.z
-			<< ", " << gazeDirection1.x << ", " << gazeDirection1.y << ", " << gazeDirection1.z;
-
-		// Output gaze angle (same format as head pose angle)
-		output_file << std::setprecision(3);
-		output_file << ", " << gaze_angle[0] << ", " << gaze_angle[1];
-
-		// Output the 2D eye landmarks
-		output_file << std::setprecision(1);
-		for (auto eye_lmk : eye_landmarks2d)
-		{
-			output_file << ", " << eye_lmk.x;
-		}
-
-		for (auto eye_lmk : eye_landmarks2d)
-		{
-			output_file << ", " << eye_lmk.y;
-		}
-
-		// Output the 3D eye landmarks
-		for (auto eye_lmk : eye_landmarks3d)
-		{
-			output_file << ", " << eye_lmk.x;
-		}
-
-		for (auto eye_lmk : eye_landmarks3d)
-		{
-			output_file << ", " << eye_lmk.y;
-		}
-
-		for (auto eye_lmk : eye_landmarks3d)
-		{
-			output_file << ", " << eye_lmk.z;
-		}*/
-
 	if(params.outputHOG())
 	{
 		this->hog_recorder.Write();
