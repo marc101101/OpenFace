@@ -375,7 +375,7 @@ void RecorderOpenFace::WriteObservation()
 		<< "'head_pose': " << head_pose[2] << ", "
 		<< "'head_pose': " << head_pose[3] << ", "
 		<< "'head_pose': " << head_pose[4] << ", "
-		<< "'head_pose': " << head_pose[5] << ", "
+		<< "'head_pose': " << head_pose[5] << ", " 
 
 		//<< "'eye_landmarks3D_0_x': " << eye_landmarks3D[0].x << ", "
 		//<< "'eye_landmarks3D_1_y': " << eye_landmarks3D[0].y << ", "
@@ -384,33 +384,33 @@ void RecorderOpenFace::WriteObservation()
 		//<< "'eye_landmarks3D_1_y': " << eye_landmarks3D[28].y << ", "
 		//<< "'eye_landmarks3D_2_z': " << eye_landmarks3D[28].z  << "}" 
 
-		/* 
-		for (int i = 0; i < eye_landmarks2D; ++i)
-		{
-			<< "'eye_lmk_x_" << i << ":'" << eye_landmarks2D[i].x;
-		}
-		for (int i = 0; i < eye_landmarks2D; ++i)
-		{
-			<< "'eye_lmk_y_" << i << ":'" << eye_landmarks2D[i].y;
-		}
-
-
-		for (int i = 0; i < eye_landmarks3D; ++i)
-		{
-			<< "'eye_lmk_X_" << i << ":'" << eye_landmarks3D[i].x;
-		}
-		for (int i = 0; i < eye_landmarks3D; ++i)
-		{
-			<< "'eye_lmk_Y_" << i << ":'" << eye_landmarks3D[i].y;
-		}
-
-		for (int i = 0; i < eye_landmarks3D; ++i)
-		{
-			<< "'eye_lmk_Z_" << i << ":'" << eye_landmarks3D[i].z;
-		}	
-		*/
 		
-		<<  std::endl;
+		for (int i = 0; i < eye_landmarks2D; ++i)
+		{
+			std::cout << "'eye_lmk_x_" << i << ":'" << eye_landmarks2D[i].x << ", ";
+		}
+		for (int i = 0; i < eye_landmarks2D; ++i)
+		{
+			std::cout << "'eye_lmk_y_" << i << ":'" << eye_landmarks2D[i].y << ", ";
+		}
+
+
+		for (int i = 0; i < eye_landmarks3D; ++i)
+		{
+			std::cout << "'eye_lmk_X_" << i << ":'" << eye_landmarks3D[i].x << ", ";
+		}
+		for (int i = 0; i < eye_landmarks3D; ++i)
+		{
+			std::cout << "'eye_lmk_Y_" << i << ":'" << eye_landmarks3D[i].y << ", ";
+		}
+
+		for (int i = 0; i < eye_landmarks3D; ++i)
+		{
+			std::cout << "'eye_lmk_Z_" << i << ":'" << eye_landmarks3D[i].z << ", ";
+		}	
+		
+		
+		std::cout << "}" <<  std::endl;
 
 		/* 
 		output_file << std::setprecision(6);
