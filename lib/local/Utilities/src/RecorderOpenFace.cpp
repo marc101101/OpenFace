@@ -357,6 +357,57 @@ void RecorderOpenFace::WriteObservation()
 		landmark_detection_confidence, landmarks_2D, landmarks_3D, pdm_params_local, pdm_params_global, head_pose,
 		gaze_direction0, gaze_direction1, gaze_angle, eye_landmarks2D, eye_landmarks3D, au_intensities, au_occurences);
 
+	std::cout << "relevant_entry:" << "{"
+		<< "'face_id': " << face_id << ", "
+		<< "'frame_number': " << frame_number << ", " 
+		<< "'landmark_detection_success': " << landmark_detection_success << ", " 
+		<< "'landmark_detection_confidence': " << landmark_detection_confidence << ", " 
+		<< "'gaze_direction_0_x': " << gaze_direction0.x << ", " 
+		<< "'gaze_direction_0_y': " << gaze_direction0.y << ", " 
+		<< "'gaze_direction_0_z': " << gaze_direction0.z << ", " 
+		<< "'gaze_direction_1_x': " << gaze_direction1.x << ", "
+		<< "'gaze_direction_1_y': " << gaze_direction1.y << ", "
+		<< "'gaze_direction_1_z': " << gaze_direction1.z << ", "
+		<< "'gaze_angle_x': " << gaze_angle[0] << ", "
+		<< "'gaze_angle_y': " << gaze_angle[1] << ", "
+		<< "'pose_Tx': " << head_pose[0] << ", "
+		<< "'pose_Ty': " << head_pose[1] << ", "
+		<< "'pose_Tz': " << head_pose[2] << ", "
+		<< "'pose_Rx': " << head_pose[3] << ", "
+		<< "'pose_Ry': " << head_pose[4] << ", "
+		<< "'pose_Rz': " << head_pose[5] << ", ";
+
+		for (int i = 0; i < eye_landmarks2D.size(); ++i)
+		{
+			std::cout << "'eye_lmk_x_" << i << "':" << eye_landmarks2D[i].x << ", ";
+		}
+		for (int i = 0; i < eye_landmarks2D.size(); ++i)
+		{
+			std::cout << "'eye_lmk_y_" << i << "':" << eye_landmarks2D[i].y << ", ";
+		}
+
+
+		for (int i = 0; i < eye_landmarks3D.size(); ++i)
+		{
+			std::cout << "'eye_lmk_X_" << i << "':" << eye_landmarks3D[i].x << ", ";
+		}
+		for (int i = 0; i < eye_landmarks3D.size(); ++i)
+		{
+			std::cout << "'eye_lmk_Y_" << i << "':" << eye_landmarks3D[i].y << ", ";
+		}
+
+		for (int i = 0; i < eye_landmarks3D.size(); ++i)
+		{
+			if(i == eye_landmarks3D.size()-1){
+				std::cout << "'eye_lmk_Z_" << i << "':" << eye_landmarks3D[i].z;
+			}
+			else{
+				std::cout << "'eye_lmk_Z_" << i << "':" << eye_landmarks3D[i].z << ", ";
+			}
+		}	
+				
+		std::cout << "}" <<  std::endl;
+
 	if(params.outputHOG())
 	{
 		this->hog_recorder.Write();
